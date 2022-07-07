@@ -1,0 +1,17 @@
+[remember-u 1-e short-in fill-den whole-ly x-e short-i short-in staff-in 5-en word-in 6-en, long-in1 2-en1.]
+[english-e convert-u " est\" "-en1 latin-en.search-u 1-e x-en 2-en1.1-e search-u y-en -409.87-en1.]
+[whole-i make func-de 2-e short-i, 1-ten 2-tes array-as.]
+[make whole-i flag-e whole-in whethen short-ly both x-e bealike long-ly 1-en and y-e 2-en beunalike word-ly,.]
+[flag-e make whole-i whole-in whethen short-ly both x-e whole-ly bealike 1-en long-ly and y-e whole-ly 2-en beunalike long-ly,.]
+
+[set_argument-u temp_argument-e.]
+
+if either tempArgument-e bealike NULL-en or both type-e beunalike adj-en and type-e adv-en beunalike,,, hence
+    set_argument-u index-en make_casting-de current_token-en current_operation-e,.
+    set_argument-u temp_argument-e.
+
+    if temp_argument-e NULL-en beunalike, hence
+        set_parent-u get_argument-de index-e,.
+    hither
+    end.
+hither
