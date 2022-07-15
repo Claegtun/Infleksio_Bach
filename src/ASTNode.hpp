@@ -88,22 +88,26 @@ class Argument: public ASTNode
 {
     public:
         //Constructor:
-        Argument(ASTNode* inputParent = NULL, const Token& inputWord = Token());
+        Argument(ASTNode* inputParent = NULL, const Token& inputWord = Token(),
+        Argument* inputOwner = NULL);
 
         //Destructor:
         ~Argument();
 
         //Setters:
         void setWord(const Token&);
+        void setOwner(Argument*);
 
         //Getters:
         Token getWord();
+        Argument* getOwner();
 
         const std::string writeTree();
         const std::string writeTree(const int&);
 
     protected:
         Token word;
+        Argument* owner;
 
     private:
 };

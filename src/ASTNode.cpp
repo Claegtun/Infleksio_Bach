@@ -129,23 +129,34 @@ const string Routine::writeTree() {
  */
 
 //Constructor:
-Argument::Argument(ASTNode* inputParent, const Token& inputWord)
+Argument::Argument(ASTNode* inputParent, const Token& inputWord, Argument* inputOwner)
 : ASTNode(inputParent) {
 	word = inputWord;
+	owner = inputOwner;
 }
 
 //Destructor:
 Argument::~Argument() {
+	if (owner != NULL) {
+		delete owner;
+		owner = NULL;
+	}
 }
 
 //Setters:
 void Argument::setWord(const Token& inputWord) {
 	word = inputWord;
 }
+void Argument::setOwner(Argument* inputOwner) {
+	owner = inputOwner;
+}
 
 //Getters:
 Token Argument::getWord() {
 	return word;
+}
+Argument* Argument::getOwner() {
+	return owner;
 }
 
 const string Argument::writeTree() {
