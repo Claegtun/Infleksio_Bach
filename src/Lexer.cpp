@@ -203,6 +203,17 @@ vector<Token> Lexer::readTokens() {
 				tokens.push_back(Token(stem, STEAD, 1 + datIndex));
 			}
 		}
+		//Worth:
+		else if (word == "worth")
+			tokens.push_back(Token(word, WORTH, 0));
+		else if (word.substr(0,7) == (stem ="worthen")) {
+			if (word.length() == stem.length())
+				tokens.push_back(Token(stem, WORTH, 1));
+			else if (isInt(word.substr(stem.length()+2,string::npos))) {
+				datIndex = stoi(word.substr(stem.length()+2,string::npos));
+				tokens.push_back(Token(stem, WORTH, 1 + datIndex));
+			}
+		}
 		//If the word is not a keyword, then parse it as either a noun, literal, adjective, or participle.
 		else {
 			//Find the '-' in the word.

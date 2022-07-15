@@ -21,7 +21,7 @@ enum TokenType {
 	//Correlating conjunctions:
     BOTH, AND, MAYBE, OR, EITHER, NOT, NEITHER, NOR, WHETHER,
 	//Reference of argument:
-    STEAD,
+    STEAD, WORTH,
 	//Common types:
     STAFF, SHORT, WHOLE, LONG, REAL, PRECISE, BOOLEAN, NOTHING,
 	//
