@@ -163,54 +163,6 @@ const string Argument::writeTree(const int& indent) {
 }
 
 /*
- * Partitive:
- */
-
-//Constructor:
-Partitive::Partitive(ASTNode* inputParent, const Token& inputWord)
-: Argument(inputParent, inputWord) {
-	part = NULL;
-	genitive = NULL;
-}
-
-//Destructor:
-Partitive::~Partitive() {
-}
-
-//Setters:
-void Partitive::setPart(Argument* inputPart) {
-	part = inputPart;
-}
-void Partitive::setGenitive(Argument* inputGenitive) {
-	genitive = inputGenitive;
-}
-
-//Getters:
-Argument* Partitive::getPart() {
-	return part;
-}
-Argument* Partitive::getGenitive() {
-	return genitive;
-}
-const string Partitive::writeTree() {
-	return writeTree(0);
-}
-const string Partitive::writeTree(const int& indent) {
-	string s = "";
-
-	for (int i = 0; i < indent; i++)
-		s += "---";
-
-	s += "Partitive:" + word.toString();
-
-	s += "\n" + part->writeTree(indent+1);
-
-	s += "\n" + genitive->writeTree(indent+1);
-
-	return s;
-}
-
-/*
  * Operation:
  */
 

@@ -108,31 +108,6 @@ class Argument: public ASTNode
     private:
 };
 
-class Partitive: public Argument
-{
-    public:
-        //Constructor:
-        Partitive(ASTNode* inputParent = NULL, const Token& inputWord = Token());
-
-        //Destructor:
-        ~Partitive();
-        //Setters:
-        void setPart(Argument*);
-        void setGenitive(Argument*);
-
-        //Getters:
-        Argument* getPart();
-        Argument* getGenitive();
-        const std::string writeTree();
-        const std::string writeTree(const int&);
-
-    protected:
-        Argument* part;
-        Argument* genitive;
-
-    private:
-};
-
 class Operation: public Argument
 {
     public:
