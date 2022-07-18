@@ -118,14 +118,14 @@ Operation* Parser::parseOperation(ASTNode* inputParent) {
 			 * operation.
 			 */
 			//Adverb:
-			case adv:
+			case adverb:
 				index = currentOperation->getWord().getIndex();
 				tempArgument = new Casting(currentOperation->getParent(), currentToken);
 				((Casting*) tempArgument)->setArgument(currentOperation);
 
 				//If the current operation is the argument of a casting:
-				if ((((Argument*)currentOperation->getParent())->getWord().getType() == adj)
-				|| (((Argument*)currentOperation->getParent())->getWord().getType() == adv))
+				if ((((Argument*)currentOperation->getParent())->getWord().getType() == adjective)
+				|| (((Argument*)currentOperation->getParent())->getWord().getType() == adverb))
 					((Casting*) (currentOperation->getParent()))->setArgument(tempArgument);
 				//Else, the current operation is the argument of an operation:
 				else
@@ -138,12 +138,12 @@ Operation* Parser::parseOperation(ASTNode* inputParent) {
 			 * If the current token is an argument, then see if there is already a casting.
 			 */
 			//Noun:
-			case noun:
+			case singular:
 			case plural:
 			//Literal:
-			case litc:
-			case litcard:
-			case lits:
+			case letter:
+			case cardinal:
+			case quote:
 				index = currentToken.getIndex();
 				tempArgument = currentOperation->getArgument(index);
 
@@ -152,14 +152,14 @@ Operation* Parser::parseOperation(ASTNode* inputParent) {
 				 * the end of the casting and set that as the argument.
 				 */
 				if ((tempArgument != NULL)
-				&& ((tempArgument->getWord().getType() == adj)
-					|| (tempArgument->getWord().getType() == adv)))
+				&& ((tempArgument->getWord().getType() == adjective)
+					|| (tempArgument->getWord().getType() == adverb)))
 				{
 					do {
 						tempCasting = (Casting*)tempArgument;
 						tempArgument = tempCasting->getArgument();
-					} while ((tempArgument->getWord().getType() == adj)
-					|| (tempArgument->getWord().getType() == adv));
+					} while ((tempArgument->getWord().getType() == adjective)
+					|| (tempArgument->getWord().getType() == adverb));
 
 					tempCasting->setArgument(new Argument(tempCasting, currentToken));
 				}
@@ -173,7 +173,7 @@ Operation* Parser::parseOperation(ASTNode* inputParent) {
 
 				break;
 			//Adjective:
-			case adj:
+			case adjective:
 				index = currentToken.getIndex();
 				tempArgument = currentOperation->getArgument(index);
 
@@ -182,15 +182,15 @@ Operation* Parser::parseOperation(ASTNode* inputParent) {
 				 * the end of the casting and set that as this current casting.
 				 */
 				if ((tempArgument != NULL)
-				&& ((tempArgument->getWord().getType() == adj)
-					|| (tempArgument->getWord().getType() == adv)))
+				&& ((tempArgument->getWord().getType() == adjective)
+					|| (tempArgument->getWord().getType() == adverb)))
 				{
 					//Seek the end of the casting.
 					do {
 						tempCasting = (Casting*)tempArgument;
 						tempArgument = tempCasting->getArgument();
-					} while ((tempArgument->getWord().getType() == adj)
-					|| (tempArgument->getWord().getType() == adv));
+					} while ((tempArgument->getWord().getType() == adjective)
+					|| (tempArgument->getWord().getType() == adverb));
 
 					//Set this current casting at the end.
 					tempCasting->setArgument(new Casting(tempCasting, currentToken));
@@ -230,15 +230,15 @@ Operation* Parser::parseOperation(ASTNode* inputParent) {
 				 * the end of the casting and set that as this current operation.
 				 */
 				if ((tempArgument != NULL)
-				&& ((tempArgument->getWord().getType() == adj)
-					|| (tempArgument->getWord().getType() == adv)))
+				&& ((tempArgument->getWord().getType() == adjective)
+					|| (tempArgument->getWord().getType() == adverb)))
 				{
 					//Seek the end of the casting.
 					do {
 						tempCasting = (Casting*)tempArgument;
 						tempArgument = tempCasting->getArgument();
-					} while ((tempArgument->getWord().getType() == adj)
-					|| (tempArgument->getWord().getType() == adv));
+					} while ((tempArgument->getWord().getType() == adjective)
+					|| (tempArgument->getWord().getType() == adverb));
 
 					//Set this current operation as the argument.
 					tempCasting->setArgument(new Operation(tempCasting, currentToken));
@@ -275,8 +275,7 @@ Operation* Parser::parseOperation(ASTNode* inputParent) {
 				currentOperation = (Operation*)currentOperation->getArgument(index);
 				break;
 			//Ordinal:
-			case ord:
-			case litord:
+			case ordinal:
 				break;
 			//End of file:
 			case ende:
@@ -289,8 +288,8 @@ Operation* Parser::parseOperation(ASTNode* inputParent) {
 				if (currentOperation != firstOperation)
 					do {
 						currentOperation = (Operation*)currentOperation->getParent();
-					} while ((currentOperation->getWord().getType() == adj)
-					|| (currentOperation->getWord().getType() == adv));
+					} while ((currentOperation->getWord().getType() == adjective)
+					|| (currentOperation->getWord().getType() == adverb));
 				else
 					return firstOperation;
 				break;
