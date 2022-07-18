@@ -11,13 +11,14 @@
 //Types of tokens:
 enum TokenType {
 	//Types of arguments:
-    noun, plural, ord, lits, litcard, litord, litc, adj, adv,
+    singular, plural, ordinal, quote, cardinal, letter, adjective, adverb,
 	//Types of operations:
     imperative, subjunctive, participle,
 	//Punctuation:
     comma, stop,
 	//Subordinating conjunctions:
-    IF, THEN, ELSE, ELSEIF, ASLONGAS, WHILE, FIRST, SOTHAT, GIVEN, AS, UNLESS, UNTIL, LEST, HENCE, HITHER,
+    IF, THEN, ELSE, ELSEIF, ASLONGAS, WHILE, FIRST, SOTHAT, GIVEN, AS, UNLESS,
+	UNTIL, LEST, HENCE, HITHER,
 	//Correlating conjunctions:
     BOTH, AND, MAYBE, OR, EITHER, NOT, NEITHER, NOR, WHETHER,
 	//Reference of argument:
@@ -29,7 +30,8 @@ enum TokenType {
 	//Common imperatives:
     MAKE, PASS, END, GIVE, USE, DO,
 	//Common participles:
-    ADDED, TAKEN, DIFFERED, MULTIPLIED, DIVIDED, MATCHED, PUSHED, INVERTED, FILLED, NEGATIVE,
+    ADDED, TAKEN, DIFFERED, MULTIPLIED, DIVIDED, MATCHED, PUSHED, INVERTED,
+	FILLED, NEGATIVE,
     LEFTSHIFT, RIGHTSHIFT,
 	//Common subjunctives:
     ALIKE, UNALIKE, SMALLER, BIGGER, ATMOST, ATLEAST,

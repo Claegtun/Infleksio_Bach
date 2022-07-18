@@ -245,20 +245,20 @@ vector<Token> Lexer::readTokens() {
 			//Parse the suffix.
 			if (suffix == "o") 			tokens.push_back(Token(stem, subjunctive));
 			else if (suffix == "u") 	tokens.push_back(Token(stem, imperative));
-			else if (suffix == "ly") 	tokens.push_back(Token(stem, adv));
-			else if (suffix == "e") 	tokens.push_back(Token(stem, noun, 0));
-			else if (suffix == "en") 	tokens.push_back(Token(stem, noun, 1 + datIndex));
-			else if (suffix == "es") 	tokens.push_back(Token(stem, noun, gen));
+			else if (suffix == "ly") 	tokens.push_back(Token(stem, adverb));
+			else if (suffix == "e") 	tokens.push_back(Token(stem, singular, 0));
+			else if (suffix == "en") 	tokens.push_back(Token(stem, singular, 1 + datIndex));
+			else if (suffix == "es") 	tokens.push_back(Token(stem, singular, gen));
 			else if (suffix == "a") 	tokens.push_back(Token(stem, plural, 0));
 			else if (suffix == "an") 	tokens.push_back(Token(stem, plural, 1 + datIndex));
 			else if (suffix == "as") 	tokens.push_back(Token(stem, plural, gen));
-			else if (suffix == "i") 	tokens.push_back(Token(stem, adj, 0));
-			else if (suffix == "in") 	tokens.push_back(Token(stem, adj, 1 + datIndex));
+			else if (suffix == "i") 	tokens.push_back(Token(stem, adjective, 0));
+			else if (suffix == "in") 	tokens.push_back(Token(stem, adjective, 1 + datIndex));
 			else if (suffix == "de") 	tokens.push_back(Token(stem, participle, 0));
 			else if (suffix == "den") 	tokens.push_back(Token(stem, participle, 1 + datIndex));
-			else if (suffix == "te") 	tokens.push_back(Token(stem, ord, 0));
-			else if (suffix == "ten") 	tokens.push_back(Token(stem, ord, 1 + datIndex));
-			else if (suffix == "tes") 	tokens.push_back(Token(stem, ord, gen));
+			else if (suffix == "te") 	tokens.push_back(Token(stem, ordinal, 0));
+			else if (suffix == "ten") 	tokens.push_back(Token(stem, ordinal, 1 + datIndex));
+			else if (suffix == "tes") 	tokens.push_back(Token(stem, ordinal, gen));
 		}
 
 		//Clear the word.
